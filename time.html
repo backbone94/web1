@@ -1,22 +1,38 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta  charset="utf-8">
+    <title>🌐정준이의 사이트🌐</title>
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
     <div class="js-clock">
       <h1>00:00:00</h1>
     </div>
-    <form class="submitName">
-      <input type="text" class="name" placeholder="이름을 입력해~">
-    </form>
+    <input type="button" value="📝메모장 열기📝" class="openMemo" style="height:40px; width:150px; margin-bottom:20px; margin-right:10px;">
+    <input type="button" value="⏰알람 설정 열기⏰" class="openAlarm" style="height:40px; width:150px; margin-bottom:20px">
+    <form class="memoForm" style="display:none">
+      <input type="text" class="name" style="height:40px; width:150px;" placeholder="이름을 입력해~">
+      <input class="submitName" type="button" style="height:40px; width:100px; margin-left:10px;" value="📝메모하기">
       <p id="load"></p>
-
-      <form class="submitToDo">
-        <input type="text" class="toDo" placeholder="할일을 적어~">
-      </form>
+      <input type="text" class="toDo" style="height:40px; width:150px;" placeholder="할일을 적어~ ex) 영화">
+      <input class="submitToDo" type="button" style="height:40px; width:100px; margin-left:10px;" value="📝메모하기">
       <ul></ul>
-    <script src="clock.js"></script>
+      <input type="text" class="food" style="height:40px; width:150px;" placeholder="먹을 음식을 적어~ ex) 고기">
+      <input class="submitFood" type="button" style="height:40px; width:100px; margin-left:10px;" value="📝메모하기">
+      <ul class="foodUl"></ul>
+    </form>
+    <form class="alarmForm" style="display:none">
+      <select class="ampm" style="margin-right:10px;">
+        <option value="am" selected>오전</option>
+        <option value="pm">오후</option>
+      </select>
+      <input type="number" class="h" maxlength="2" style="width:30px; height:20px" oninput="maxLengthCheck(this);"> 시
+      <input type="number" class="m" maxlength="2" style="width:30px; margin-left:10px; height:20px" oninput="maxLengthCheck(this);"> 분
+      <input type="button" class="specificTime" style="margin-left:10px; height:20px" value="설정하기">
+    </form>
+      <script src="clock.js"></script>
+    </table>
   </body>
 </html>
